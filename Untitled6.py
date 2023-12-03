@@ -69,6 +69,6 @@ st.subheader("Model Evaluation Results")
 
 # Confusion Matrix for Decision Tree Classifier
 st.subheader("Confusion Matrix for Decision Tree Classifier")
-cm = confusion_matrix(y_test, decision_tree_model.predict(x_test))
+#cm = confusion_matrix(y_test, decision_tree_model.predict(x_test))
 cm_display = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=[False, True])
 st.pyplot(cm_display.plot())
