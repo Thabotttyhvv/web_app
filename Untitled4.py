@@ -17,7 +17,7 @@ text_input = st.sidebar.text_area("Enter a text for hate speech detection:")
 #def remove_stopwords(text):
  #   stop_words = set(stopwords.words('english'))
  #   words = [word for word in text.split() if word.lower() not in stop_words]
-  #  return ' '.join(words)
+#  return ' '.join(words)
 
 # Preprocess the input text
 if text_input:
