@@ -28,12 +28,12 @@ df = pd.read_csv('train.csv')
 #x_test = vectorization.transform(x_test)
 
 # Model training - Logistic Regression
-logistic_model = LogisticRegression()
-logistic_model.fit(x_train, y_train)
+#logistic_model = LogisticRegression()
+#logistic_model.fit(x_train, y_train)
 
 # Model training - Decision Tree Classifier
-decision_tree_model = DecisionTreeClassifier()
-decision_tree_model.fit(x_train, y_train)
+#decision_tree_model = DecisionTreeClassifier()
+#decision_tree_model.fit(x_train, y_train)
 
 # Streamlit App
 st.title("Hate Speech Detection App")
