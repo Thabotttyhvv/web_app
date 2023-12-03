@@ -23,9 +23,9 @@ df = pd.read_csv('train.csv')
 #x_train, x_test, y_train, y_test = train_test_split(df['tweet'], df['label'], test_size=0.25)
 
 # Vectorization using TfidfVectorizer
-vectorization = TfidfVectorizer()
-x_train = vectorization.fit_transform(x_train)
-x_test = vectorization.transform(x_test)
+#vectorization = TfidfVectorizer()
+#x_train = vectorization.fit_transform(x_train)
+#x_test = vectorization.transform(x_test)
 
 # Model training - Logistic Regression
 logistic_model = LogisticRegression()
