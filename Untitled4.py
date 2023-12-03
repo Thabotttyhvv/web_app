@@ -20,10 +20,10 @@ text_input = st.sidebar.text_area("Enter a text for hate speech detection:")
 #  return ' '.join(words)
 
 # Preprocess the input text
-if text_input:
-    text_input = text_input.lower()
-    text_input = remove_punctuations(text_input)
-    text_input = remove_stopwords(text_input)
+#if text_input:
+  #  text_input = text_input.lower()
+  #  text_input = remove_punctuations(text_input)
+   # text_input = remove_stopwords(text_input)
 
 # Display the input text
 if text_input:
