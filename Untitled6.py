@@ -60,11 +60,11 @@ if text_input:
 st.subheader("Model Evaluation Results")
 
 # Logistic Regression
-st.write("Logistic Regression Accuracy on Training Data:", accuracy_score(y_train, logistic_model.predict(x_train)))
-st.write("Logistic Regression Accuracy on Test Data:", accuracy_score(y_test, logistic_model.predict(x_test)))
+#st.write("Logistic Regression Accuracy on Training Data:", accuracy_score(y_train, logistic_model.predict(x_train)))
+#st.write("Logistic Regression Accuracy on Test Data:", accuracy_score(y_test, logistic_model.predict(x_test)))
 
 # Decision Tree Classifier
-st.write("Decision Tree Accuracy on Training Data:", accuracy_score(y_train, decision_tree_model.predict(x_train)))
+#st.write("Decision Tree Accuracy on Training Data:", accuracy_score(y_train, decision_tree_model.predict(x_train)))
 st.write("Decision Tree Accuracy on Test Data:", accuracy_score(y_test, decision_tree_model.predict(x_test)))
 
 # Confusion Matrix for Decision Tree Classifier
