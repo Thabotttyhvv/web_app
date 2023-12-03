@@ -10,64 +10,65 @@ import re
 import pandas as pd
 
 
-# Load data
-df = pd.read_csv('train.csv')
-df = df.fillna(' ')
-df['content'] = df['tweet']
-X = df.drop('label', axis=1)
-y = df['label']
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression, DecisionTreeClassifier
+from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
 
-# Define stemming function
-#ps = PorterStemmer()
-def stemming(tweet):
-    stemmed_content = re.sub('[^a-zA-Z]',' ',content)
-    stemmed_content = stemmed_content.lower()
-    stemmed_content = stemmed_content.split()
-    stemmed_content = [ps.stem(word) for word in stemmed_content if not word in stopwords.words('english')]
-    stemmed_content = ' '.join(stemmed_content)
-    return stemmed_content
+# Load your dataset
+# Replace 'your_dataset.csv' with the actual file path or URL of your dataset
+data = pd.read_csv('your_dataset.csv')
 
-# Apply stemming function to content column
-df['content'] = df['content'].apply(stemming)
+# Split the data
+x_train, x_test, y_train, y_test = train_test_split(data['text'], data['class'], test_size=0.25)
 
-# Vectorize data
-X = df['tweet'].values
-y = df['label'].values
-vector = TfidfVectorizer()
-vector.fit(X)
-X = vector.transform(X)
+# Vectorization using TfidfVectorizer
+vectorization = TfidfVectorizer()
+x_train = vectorization.fit_transform(x_train)
+x_test = vectorization.transform(x_test)
 
-# Split data into train and test sets
-X_train, X_test, Y_train, Y_test = train_test_split(X, y, test_size=0.2, stratify=y, random_state=2)
+# Model training - Logistic Regression
+logistic_model = LogisticRegression()
+logistic_model.fit(x_train, y_train)
 
-# Fit logistic regression model
-model = LogisticRegression()
-model.fit(X_train,Y_train)
+# Model training - Decision Tree Classifier
+decision_tree_model = DecisionTreeClassifier()
+decision_tree_model.fit(x_train, y_train)
 
+# Streamlit App
+st.title("Hate Speech Detection App")
 
-# website
-st.title('Fake News Detector')
-input_text = st.text_input('Enter news Article')
+# Sidebar for user input
+text_input = st.text_area("Enter a text for hate speech detection:")
 
-def prediction(input_text):
-    input_data = vector.transform([input_text])
-    prediction = model.predict(input_data)
-    return prediction[0]
+if text_input:
+    # Vectorize the input text
+    vectorized_text = vectorization.transform([text_input])
 
-if input_text:
-    pred = prediction(input_text)
-    if pred == 1:
-        st.write('The News is Fake')
-    else:
-        st.write('The News Is Real')
-import streamlit as st
-import numpy as np
-import re
-import pandas as pd
+    # Predictions
+    logistic_prediction = logistic_model.predict(vectorized_text)[0]
+    decision_tree_prediction = decision_tree_model.predict(vectorized_text)[0]
 
+    # Display predictions
+    st.subheader("Logistic Regression Prediction:")
+    st.write("Hate Speech" if logistic_prediction else "Non-Hate Speech")
 
-# In[ ]:
+    st.subheader("Decision Tree Prediction:")
+    st.write("Hate Speech" if decision_tree_prediction else "Non-Hate Speech")
 
+# Display model evaluation results
+st.subheader("Model Evaluation Results")
 
+# Logistic Regression
+st.write("Logistic Regression Accuracy on Training Data:", accuracy_score(y_train, logistic_model.predict(x_train)))
+st.write("Logistic Regression Accuracy on Test Data:", accuracy_score(y_test, logistic_model.predict(x_test)))
 
+# Decision Tree Classifier
+st.write("Decision Tree Accuracy on Training Data:", accuracy_score(y_train, decision_tree_model.predict(x_train)))
+st.write("Decision Tree Accuracy on Test Data:", accuracy_score(y_test, decision_tree_model.predict(x_test)))
 
+# Confusion Matrix for Decision Tree Classifier
+st.subheader("Confusion Matrix for Decision Tree Classifier")
+cm = confusion_matrix(y_test, decision_tree_model.predict(x_test))
+cm_display = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=[False, True])
+st.pyplot(cm_display.plot())
