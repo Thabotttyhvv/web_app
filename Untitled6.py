@@ -24,8 +24,8 @@ df = pd.read_csv('train.csv')
 
 # Vectorization using TfidfVectorizer
 #vectorization = TfidfVectorizer()
-#x_train = vectorization.fit_transform(x_train)
-#x_test = vectorization.transform(x_test)
+x_train = vectorization.fit_transform(x_train)
+x_test = vectorization.transform(x_test)
 
 # Model training - Logistic Regression
 #logistic_model = LogisticRegression()
