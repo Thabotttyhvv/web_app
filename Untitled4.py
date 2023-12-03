@@ -2,7 +2,6 @@ import pickle
 import streamlit as st
 import pandas as pd
 import string
-import matplotlib.pyplot as plt
 
 # Load the preprocessed DataFrame
 df = pd.read_csv('train.csv')
