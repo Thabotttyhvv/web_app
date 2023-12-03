@@ -65,7 +65,7 @@ st.subheader("Model Evaluation Results")
 
 # Decision Tree Classifier
 #st.write("Decision Tree Accuracy on Training Data:", accuracy_score(y_train, decision_tree_model.predict(x_train)))
-st.write("Decision Tree Accuracy on Test Data:", accuracy_score(y_test, decision_tree_model.predict(x_test)))
+#st.write("Decision Tree Accuracy on Test Data:", accuracy_score(y_test, decision_tree_model.predict(x_test)))
 
 # Confusion Matrix for Decision Tree Classifier
 st.subheader("Confusion Matrix for Decision Tree Classifier")
