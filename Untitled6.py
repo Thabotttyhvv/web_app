@@ -10,7 +10,7 @@ import re
 import pandas as pd
 
 
-from sklearn.model_selection import train_test_split
+#from sklearn.model_selection import train_test_split
 #from sklearn.feature_extraction.text import TfidfVectorizer
 #from sklearn.linear_model import LogisticRegression, DecisionTreeClassifier
 #from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
@@ -20,7 +20,7 @@ from sklearn.model_selection import train_test_split
 df = pd.read_csv('train.csv')
 
 # Split the data
-x_train, x_test, y_train, y_test = train_test_split(df['tweet'], df['label'], test_size=0.25)
+#x_train, x_test, y_train, y_test = train_test_split(df['tweet'], df['label'], test_size=0.25)
 
 # Vectorization using TfidfVectorizer
 #vectorization = TfidfVectorizer()
@@ -43,7 +43,7 @@ text_input = st.text_area("Enter a text for hate speech detection:")
 
 if text_input:
     # Vectorize the input text
-    vectorized_text = vectorization.transform([text_input])
+   # vectorized_text = vectorization.transform([text_input])
 
     # Predictions
     logistic_prediction = logistic_model.predict(vectorized_text)[0]
