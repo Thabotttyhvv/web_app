@@ -19,7 +19,7 @@ y = df['label']
 
 # Define stemming function
 #ps = PorterStemmer()
-def stemming(content):
+def stemming(tweet):
     stemmed_content = re.sub('[^a-zA-Z]',' ',content)
     stemmed_content = stemmed_content.lower()
     stemmed_content = stemmed_content.split()
