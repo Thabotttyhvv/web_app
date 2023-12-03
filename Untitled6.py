@@ -11,11 +11,11 @@ import pandas as pd
 
 
 # Load data
-news_df = pd.read_csv('train.csv')
-news_df = news_df.fillna(' ')
-news_df['content'] = news_df['tweet']
-X = news_df.drop('label', axis=1)
-y = news_df['label']
+df = pd.read_csv('train.csv')
+df = df.fillna(' ')
+df['content'] = df['tweet']
+X = df.drop('label', axis=1)
+y = df['label']
 
 # Define stemming function
 #ps = PorterStemmer()
@@ -28,11 +28,11 @@ def stemming(content):
     return stemmed_content
 
 # Apply stemming function to content column
-news_df['content'] = news_df['content'].apply(stemming)
+df['content'] = df['content'].apply(stemming)
 
 # Vectorize data
-X = news_df['content'].values
-y = news_df['label'].values
+X = df['tweet'].values
+y = df['label'].values
 vector = TfidfVectorizer()
 vector.fit(X)
 X = vector.transform(X)
