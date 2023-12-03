@@ -10,10 +10,10 @@ import re
 import pandas as pd
 
 
-from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression, DecisionTreeClassifier
-from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
+#from sklearn.model_selection import train_test_split
+#from sklearn.feature_extraction.text import TfidfVectorizer
+#from sklearn.linear_model import LogisticRegression, DecisionTreeClassifier
+#from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
 
 # Load your dataset
 # Replace 'your_dataset.csv' with the actual file path or URL of your dataset
