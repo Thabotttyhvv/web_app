@@ -31,9 +31,9 @@ if text_input:
     st.write(text_input)
 
     # Vectorization using TfidfVectorizer
-    vectorization = TfidfVectorizer()
-    x_train = vectorization.fit_transform(df['tweet'])
-    x_input = vectorization.transform([text_input])
+    #vectorization = TfidfVectorizer()
+    #x_train = vectorization.fit_transform(df['tweet'])
+    #x_input = vectorization.transform([text_input])
 
     # Model training - Logistic Regression
     logistic_model = LogisticRegression()
