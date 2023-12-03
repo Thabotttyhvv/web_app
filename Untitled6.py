@@ -10,7 +10,7 @@ import re
 import pandas as pd
 
 
-#from sklearn.model_selection import train_test_split
+import train_test_split
 #from sklearn.feature_extraction.text import TfidfVectorizer
 #from sklearn.linear_model import LogisticRegression, DecisionTreeClassifier
 #from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
@@ -20,12 +20,12 @@ import pandas as pd
 df = pd.read_csv('train.csv')
 
 # Split the data
-#x_train, x_test, y_train, y_test = train_test_split(df['tweet'], df['label'], test_size=0.25)
+x_train, x_test, y_train, y_test = train_test_split(df['tweet'], df['label'], test_size=0.25)
 
 # Vectorization using TfidfVectorizer
 #vectorization = TfidfVectorizer()
-x_train = vectorization.fit_transform(x_train)
-x_test = vectorization.transform(x_test)
+#x_train = vectorization.fit_transform(x_train)
+#x_test = vectorization.transform(x_test)
 
 # Model training - Logistic Regression
 #logistic_model = LogisticRegression()
