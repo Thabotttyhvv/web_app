@@ -1,16 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[3]:
-
-
 import pickle
 import streamlit as st
 import pandas as pd
 import string
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression, DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
@@ -70,27 +63,14 @@ if text_input:
 st.subheader("Model Evaluation Results")
 
 # Logistic Regression
-st.write("Logistic Regression Accuracy:", accuracy_score(df['label'], logistic_model.predict(x_train)))
+#st.write("Logistic Regression Accuracy:", accuracy_score(df['label'], logistic_model.predict(x_train)))
 
 # Decision Tree Classifier
-st.write("Decision Tree Accuracy:", accuracy_score(df['label'], decision_tree_model.predict(x_train)))
+#st.write("Decision Tree Accuracy:", accuracy_score(df['label'], decision_tree_model.predict(x_train)))
 
 # Confusion Matrix for Decision Tree Classifier
 st.subheader("Confusion Matrix for Decision Tree Classifier")
-cm = confusion_matrix(df['label'], decision_tree_model.predict(x_train))
-cm_display = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=[0, 1])
+#cm = confusion_matrix(df['label'], decision_tree_model.predict(x_train))
+#cm_display = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=[0, 1])
 st.pyplot(plt.figure(figsize=(8, 6)))
-st.pyplot(cm_display.plot())
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
+#st.pyplot(cm_display.plot())
