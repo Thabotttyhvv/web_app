@@ -18,7 +18,7 @@ X = news_df.drop('label', axis=1)
 y = news_df['label']
 
 # Define stemming function
-ps = PorterStemmer()
+#ps = PorterStemmer()
 def stemming(content):
     stemmed_content = re.sub('[^a-zA-Z]',' ',content)
     stemmed_content = stemmed_content.lower()
