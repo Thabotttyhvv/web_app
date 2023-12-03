@@ -17,10 +17,10 @@ import pandas as pd
 
 # Load your dataset
 # Replace 'your_dataset.csv' with the actual file path or URL of your dataset
-data = pd.read_csv('your_dataset.csv')
+pd = pd.read_csv('train.csv')
 
 # Split the data
-x_train, x_test, y_train, y_test = train_test_split(data['text'], data['class'], test_size=0.25)
+x_train, x_test, y_train, y_test = train_test_split(pd['tweet'], pd['label'], test_size=0.25)
 
 # Vectorization using TfidfVectorizer
 vectorization = TfidfVectorizer()
